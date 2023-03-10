@@ -61,6 +61,10 @@ export class AppConfigService {
     };
   }
 
+  get uploadPath(): string {
+    return this.get<string>('BASE_UPLOAD_DIR');
+  }
+
   private get<T>(key: string): T {
     const value = this.configService.get<T>(key);
 

@@ -4,7 +4,15 @@ import { BookModule } from './book/book.module';
 import { StressModule } from './stress/stress.module';
 
 @Module({
-  imports: [AuthModule, BookModule, StressModule],
-  exports: [AuthModule, BookModule],
+  imports: [
+    AuthModule,
+    // BookModule,
+    StressModule,
+  ],
+  exports: [
+    AuthModule,
+    // BookModule,
+    StressModule,
+  ],
 })
 export class ApisModule {}
