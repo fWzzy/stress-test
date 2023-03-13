@@ -1,6 +1,13 @@
 import { Cookies } from '@app/core/decorators/cookies.decorator';
 import { GenericController } from '@app/core/decorators/generic-controller.decorator';
-import { Body, Post, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  Get,
+  Post,
+  Res,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiConsumes } from '@nestjs/swagger';
 import { randomUUID } from 'crypto';
 import { Response, Express } from 'express';
@@ -39,6 +46,8 @@ export class StressController {
     return newStressRecord;
   }
 
-  // @Get()
-  // getAllStress() {}
+  @Get()
+  getAllStress(@Cookies('clientId') clientId: string) {
+    return this.stressService.getStressData(clientId);
+  }
 }

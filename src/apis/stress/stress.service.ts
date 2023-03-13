@@ -22,4 +22,8 @@ export class StressService {
 
     return newStressRecord;
   }
+
+  async getStressData(clientId: string) {
+    return clientId ? await this.stressRepository.find({ clientId }) : [];
+  }
 }
